@@ -5,31 +5,27 @@ import ItemDetail from './ItemDetail';
 
 
 const ItemDetailContainer = () => {
-
-    
     const {productoId} = useParams();
-    
-    console.log('productoId', productoId);
-
     const [producto, setProducto] = useState(null)
 
-    const getProductos = () => {
-        fetchProducto(productoId);
-    }
+    let promesaproducto= new Promise ((res )=>{
+        setTimeout(()=>{
+            res(fetchProducto(parseInt(productoId)))
+        });})
 
     useEffect(() => {
-        getProductos().then((res)=>setProducto(res))
+        promesaproducto
+        .then((res) => setProducto(res));
         return;
     
     }, [])
     
-    console.log('producto en itemdetailcontainer', producto)
 
     return (
         <div>
-            <ItemDetail producto= {productoId}/>
+            <ItemDetail producto= {producto}/>
         </div>
     )
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

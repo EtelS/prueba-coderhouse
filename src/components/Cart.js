@@ -11,7 +11,7 @@ const Cart = () => {
             <div> CARRITO DE COMPRAS </div> 
             <center>
                 {cartList.map(producto =>   <div key={producto.id}>
-                                                <h3>{producto.producto.nombre}</h3>
+                                                <h3>{producto.nombre}</h3>
                                             </div>)}
             </center>
 
